@@ -25,10 +25,16 @@ describe('Product Explorer', () => {
     });
   });
 
-  describe('search + category filter combined', () => {
+  describe('search and category filter combined', () => {
     it('combines search query with category filter and shows filtered results', () => {
+      cy.intercept('GET', '**/products/search?*').as('searchRequest');
+      cy.intercept('GET', '**/products/category/**').as('categoryRequest');
+
       cy.get('[data-testid="search-input"]').type('a');
+      cy.wait('@searchRequest');
+
       cy.get('[data-testid="category-select"]').select('beauty');
+      cy.wait('@categoryRequest');
 
       cy.get('[data-testid="results-summary"]')
         .should('contain', 'beauty')
