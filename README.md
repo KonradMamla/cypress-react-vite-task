@@ -27,21 +27,23 @@ npx cypress open
 
 ## Test structure
 
+## Test structure
+
 ```
 cypress/
-e2e/
-api.cy.ts                    # API tests
-product-explorer.cy.ts       # E2E tests
-component/
-search-bar.cy.tsx
-product-card.cy.tsx
-product-details-modal.cy.tsx
-fixtures/
-product.json                 # shared fixture for component tests
-support/
-component-index.html         # minimal HTML shell for component tests
-component.ts                 # cy.mount() setup
-e2e.ts
+  e2e/
+    api.cy.ts                    # API tests
+    product-explorer.cy.ts       # E2E tests
+  component/
+    search-bar.cy.tsx
+    product-card.cy.tsx
+    product-details-modal.cy.tsx
+  fixtures/
+    product.json                 # shared fixture for component tests
+  support/
+    component-index.html         # minimal HTML shell for component tests
+    component.ts                 # cy.mount() setup
+    e2e.ts
 ```
 
 ## What's covered
