@@ -64,7 +64,7 @@ cypress/
 ## Technical decisions
 
 **TypeScript used intentionally**
-Types from `src/types/product.ts` are used directly in tests. `cy.request<ProductsResponse>()` gives type safety on response body. `Omit<Product, 'brand' | 'images'>` in fixtures and mocks explicitly excludes optional fields that the tested components don't use — this is intentional, not accidental.
+Types from `src/types/product.ts` are used directly in tests — as generics (`cy.request<ProductsResponse>()`), explicit annotations (`const first: Product`), inline iterator types (`product: Product`), and type assertions in network interceptions. `Omit<Product, 'brand' | 'images'>` in fixtures and mocks explicitly excludes optional fields that the tested components don't use — this is intentional, not accidental.
 
 **No Page Object Model**
 At this scale POM would be over-engineering. Each selector appears once or twice across the suite. If the suite grew significantly — multiple specs sharing the same selectors and user flows — I'd introduce Page Objects to centralise selectors and keep test scenarios focused on business logic.
