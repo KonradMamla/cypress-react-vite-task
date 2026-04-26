@@ -40,8 +40,7 @@ describe('Product Explorer', () => {
         .should('contain', 'beauty')
         .and('contain', 'a');
 
-      cy.get('[data-testid="clear-filters-button"]').should('be.visible');
-      cy.get('[data-testid="clear-filters-button"]').click();
+      cy.get('[data-testid="clear-filters-button"]').should('be.visible').click();
 
       cy.get('[data-testid="results-summary"]').should('not.contain', 'beauty');
       cy.get('[data-testid="search-input"]').should('have.value', '');

@@ -27,8 +27,6 @@ npx cypress open
 
 ## Test structure
 
-## Test structure
-
 ```
 cypress/
   e2e/
