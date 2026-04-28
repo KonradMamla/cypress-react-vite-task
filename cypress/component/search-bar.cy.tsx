@@ -2,7 +2,7 @@ import { SearchBar } from '../../src/components/SearchBar';
 
 describe('SearchBar', () => {
   it('renders input with value passed as prop', () => {
-    cy.mount(<SearchBar value="phone" onChange={cy.stub().as('onChange')} />);
+    cy.mount(<SearchBar value="phone" onChange={cy.stub()} />);
     cy.get('[data-testid="search-input"]').should('have.value', 'phone');
   });
 
@@ -12,6 +12,6 @@ describe('SearchBar', () => {
 
     cy.get('[data-testid="search-input"]').type('laptop');
 
-    cy.get('@onChange').should('have.been.called')
+    cy.get('@onChange').should('have.been.called');
   });
 });

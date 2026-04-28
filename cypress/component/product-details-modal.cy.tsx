@@ -7,10 +7,10 @@ const mockProduct: Omit<Product, 'brand' | 'images'> = {
   description: 'Popular mascara known for volumizing effects.',
   category: 'beauty',
   price: 9.99,
-  rating: 4.94,
-  stock: 5,
+  rating: 2.56,
+  stock: 99,
   thumbnail:
-    'https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.webp',
+    'https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp',
 };
 
 describe('ProductDetailsModal', () => {
@@ -21,7 +21,7 @@ describe('ProductDetailsModal', () => {
         loading={false}
         error={null}
         product={mockProduct}
-        onClose={cy.stub().as('onClose')}
+        onClose={cy.stub()}
       />,
     );
 

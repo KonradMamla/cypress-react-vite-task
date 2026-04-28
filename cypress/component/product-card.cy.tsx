@@ -9,7 +9,8 @@ const mockProduct: Omit<Product, 'brand' | 'images'> = {
   price: 9.99,
   rating: 2.56,
   stock: 99,
-  thumbnail: 'https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp',
+  thumbnail:
+    'https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp',
 };
 
 describe('ProductCard', () => {
@@ -18,8 +19,8 @@ describe('ProductCard', () => {
       <ProductCard
         product={mockProduct}
         isFavourite={false}
-        onOpenDetails={cy.stub().as('onOpenDetails')}
-        onToggleFavourite={cy.stub().as('onToggleFavourite')}
+        onOpenDetails={cy.stub()}
+        onToggleFavourite={cy.stub()}
       />,
     );
 
@@ -35,7 +36,7 @@ describe('ProductCard', () => {
         product={mockProduct}
         isFavourite={false}
         onOpenDetails={cy.stub().as('onOpenDetails')}
-        onToggleFavourite={cy.stub().as('onToggleFavourite')}
+        onToggleFavourite={cy.stub()}
       />,
     );
 
