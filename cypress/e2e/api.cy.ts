@@ -1,11 +1,12 @@
 import type { Product, ProductsResponse } from '../../src/types/product';
 
 const API_BASE = 'https://dummyjson.com';
+const PRODUCT_LIMIT = 12;
 
 describe('DummyJSON API', () => {
   describe('GET /products', () => {
     it('returns a valid ProductsResponse shape', () => {
-      cy.request<ProductsResponse>(`${API_BASE}/products?limit=12`).then(
+      cy.request<ProductsResponse>(`${API_BASE}/products?limit=${PRODUCT_LIMIT}`).then(
         (response) => {
           expect(response.status).to.eq(200);
 
@@ -14,7 +15,7 @@ describe('DummyJSON API', () => {
           expect(body.products)
             .to.be.an('array')
             .and.have.length.greaterThan(0);
-          expect(body.limit).to.eq(12);
+          expect(body.limit).to.eq(PRODUCT_LIMIT);
 
           const first: Product = body.products[0];
           expect(first).to.include.keys([
@@ -36,7 +37,7 @@ describe('DummyJSON API', () => {
   describe('GET /products/search', () => {
     it('returns matching products for query "phone"', () => {
       cy.request<ProductsResponse>(
-        `${API_BASE}/products/search?q=phone&limit=12`,
+        `${API_BASE}/products/search?q=phone&limit=${PRODUCT_LIMIT}`,
       ).then((response) => {
         expect(response.status).to.eq(200);
 
